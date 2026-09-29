@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finder</title>
+    <script src="landlords.js" defer></script>
+    <link rel="stylesheet" href="landlords.css" />
+    </head>
+    <body>
+    <nav>
+        <a href="home.htm">Home</a>
+        <a href="why-list.htm">Why list </a>
+        <a href="lanlords.htm">list house </a>
+        <a href="customer.htm">Customer Care</a>
+        <a class="sign-in" href="signup.htm">Sign Up/Sign in</a>
+    </nav>
+    <main class="platform-main-section">
+    <section class="value-propositions">
+        <h2>Why Advertise With Us</h2>
+        
+        <article class="prop-card">
+            <h3>List in Seconds, Rent in Days</h3>
+            <p>Experience a streamlined onboarding process designed to get your properties live and in front of eager tenants with minimal effort.</p>
+        </article>
+
+        <article class="prop-card">
+            <h3>Zero-Wasted Effort</h3>
+            <p>Say goodbye to endless phone calls and untargeted flyers. Our platform connects you directly with verified seekers actively looking for units matching your exact specifications.</p>
+        </article>
+
+        <article class="prop-card">
+            <h3>Centralized Management Hub</h3>
+            <p>Track inquiries, update availability status, and manage multiple listings from a single, intuitive dashboard optimized for both desktop and mobile.</p>
+        </article>
+
+        <article class="prop-card">
+            <h3>Maximized Visibility</h3>
+            <p>Leverage built-in SEO and targeted local reach to ensure your vacant units spend less time empty and more time generating revenue.</p>
+        </article>
+    </section>
+</main>
+    <div class="platform-stats-container">
+    <div class="stat-box">
+        <span id="renters-count" class="stat-number">0</span>
+        <span class="stat-label">Renters & Landlords Joined</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-box">
+        <span id="units-count" class="stat-number">0</span>
+        <span class="stat-label">Units Advertised</span>
+    </div>
+    <div class="stats-action">
+        <p class="stats-prompt">Ready to grow your portfolio?</p>
+        <button id="simulate-upload-btn" class="cta-btn">Join & Upload Unit</button>
+    </div>
+</div>
+<!-- Form Container Starts -->
+<div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden my-8 border border-slate-100">
+  
+  <!-- Step Progress Header -->
+  <div class="bg-slate-900 text-white p-6 md:p-8">
+    <div class="flex justify-between items-center mb-4">
+      <h2 id="step-title" class="text-xl md:text-2xl font-bold tracking-tight">Step 1: Personal Information</h2>
+      <span id="step-indicator" class="text-sm font-medium text-slate-400 bg-slate-800 px-3 py-1 rounded-full">Page 1 of 6</span>
+    </div>
+    <!-- Progress Bar -->
+    <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+      <div id="progress-bar" class="bg-emerald-500 h-full transition-all duration-300 w-[16.66%]"></div>
+    </div>
+  </div>
+
+  <!-- Multi-Step Form Body -->
+  <form id="finder-form" class="p-6 md:p-10 space-y-6">
+
+    <!-- PAGE 1: Personal Details -->
+    <div class="form-page space-y-5" data-page="1">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">First Name</label>
+          <input type="text" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition" placeholder="e.g. Anthony">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Last Name</label>
+          <input type="text" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition" placeholder="e.g. Chumba">
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
+        <input type="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition" placeholder="anthony@example.com">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Phone Number</label>
+        <input type="tel" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition" placeholder="+254 700 000 000">
+      </div>
+    </div>
+
+    <!-- PAGE 2: Apartment Information -->
+    <div class="form-page space-y-5 hidden" data-page="2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Location / Neighborhood</label>
+          <input type="text" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition" placeholder="e.g. Westlands, Nairobi">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Apartment Size</label>
+          <select required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition bg-white">
+            <option value="">Select size</option>
+            <option value="bedsitter">Bedsitter</option>
+            <option value="1br">1 Bedroom</option>
+            <option value="2br">2 Bedroom</option>
+            <option value="3br">3+ Bedroom / Villa</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Monthly Rent (Ksh / USD)</label>
+        <input type="number" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition" placeholder="e.g. 35000">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-2">Available Amenities</label>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <label class="flex items-center space-x-2 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+            <input type="checkbox" class="rounded text-slate-900 focus:ring-slate-900">
+            <span class="text-sm text-slate-700">Wi-Fi</span>
+          </label>
+          <label class="flex items-center space-x-2 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+            <input type="checkbox" class="rounded text-slate-900 focus:ring-slate-900">
+            <span class="text-sm text-slate-700">Ample Parking</span>
+          </label>
+          <label class="flex items-center space-x-2 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+            <input type="checkbox" class="rounded text-slate-900 focus:ring-slate-900">
+            <span class="text-sm text-slate-700">24/7 Security</span>
+          </label>
+          <label class="flex items-center space-x-2 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+            <input type="checkbox" class="rounded text-slate-900 focus:ring-slate-900">
+            <span class="text-sm text-slate-700">Borehole Water</span>
+          </label>
+          <label class="flex items-center space-x-2 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+            <input type="checkbox" class="rounded text-slate-900 focus:ring-slate-900">
+            <span class="text-sm text-slate-700">Backup Generator</span>
+          </label>
+          <label class="flex items-center space-x-2 p-3 border border-slate-200 rounded-lg hover:bg-slate-50 cursor-pointer">
+            <input type="checkbox" class="rounded text-slate-900 focus:ring-slate-900">
+            <span class="text-sm text-slate-700">Balcony</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: Apartment Photos -->
+    <div class="form-page space-y-5 hidden" data-page="3">
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Upload Apartment Photos</label>
+        <p class="text-xs text-slate-500 mb-3">Please upload high-resolution image files only (PNG, JPG, JPEG).</p>
+        <div class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:border-slate-900 transition bg-slate-50">
+          <input type="file" id="apartment-photos" accept="image/*" multiple class="hidden">
+          <label for="apartment-photos" class="cursor-pointer flex flex-col items-center justify-center">
+            <svg class="w-10 h-10 text-slate-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            <span class="text-sm font-medium text-slate-700">Click to browse or drag images here</span>
+            <span class="text-xs text-slate-400 mt-1">Supports multiple image selections</span>
+          </label>
+        </div>
+        <div id="photo-preview-container" class="grid grid-cols-3 gap-3 mt-4"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: Landlord Identification & Ownership Documents -->
+    <div class="form-page space-y-5 hidden" data-page="4">
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">National ID / Passport Copy</label>
+        <p class="text-xs text-slate-500 mb-2">Accepted formats: PDF, PNG, JPG</p>
+        <input type="file" accept=".pdf,image/*" required class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 border border-slate-300 rounded-lg p-2">
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Proof of Ownership (Title Deed / Lease Agreement / Utility Bill)</label>
+        <p class="text-xs text-slate-500 mb-2">Accepted formats: PDF, PNG, JPG</p>
+        <input type="file" accept=".pdf,image/*" required class="w-full text-sm text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200 border border-slate-300 rounded-lg p-2">
+      </div>
+    </div>
+
+    <!-- PAGE 5: Payment Accounts Registration -->
+    <div class="form-page space-y-5 hidden" data-page="5">
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1">Preferred Payout Method</label>
+        <select id="payout-method" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none transition bg-white">
+          <option value="bank">Bank Account</option>
+          <option value="mppa">Mobile Money (M-Pesa / Mobile Wallet)</option>
+          <option value="crypto">Cryptocurrency (Binance Wallet)</option>
+        </select>
+      </div>
+      <div id="bank-fields" class="space-y-4 payout-fields">
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Bank Name</label>
+          <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 outline-none" placeholder="e.g. Equity Bank">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Account Number</label>
+          <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 outline-none" placeholder="Account Number">
+        </div>
+      </div>
+      <div id="mppa-fields" class="space-y-4 payout-fields hidden">
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Mobile Money Number / Paybill</label>
+          <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 outline-none" placeholder="+254 700 000 000">
+        </div>
+      </div>
+      <div id="crypto-fields" class="space-y-4 payout-fields hidden">
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Binance Pay ID / USDT Wallet Address</label>
+          <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-slate-900 outline-none" placeholder="Binance ID or TRC20/BEP20 Address">
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: Terms & Commission Agreement -->
+    <div class="form-page space-y-5 hidden" data-page="6">
+      <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+        <div class="flex">
+          <div class="ml-3">
+            <h3 class="text-sm font-bold text-amber-800">Important Commission Notice</h3>
+            <p class="text-xs text-amber-700 mt-1">
+              By completing this registration, you acknowledge and agree that a standard service commission of <strong>10%</strong> will be automatically deducted from your tenant's <strong>first rent payment</strong> processed through Finder.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 max-h-40 overflow-y-auto text-xs text-slate-600 space-y-2">
+        <h4 class="font-bold text-slate-800">Finder Landlord Terms & Conditions</h4>
+        <p>1. <strong>Listing Accuracy:</strong> Landlords guarantee that all apartment details, pricing, and uploaded media accurately reflect the physical state of the property.</p>
+        <p>2. <strong>Commission Deductions:</strong> The 10% first-month commission covers platform hosting, verified tenant matchmaking, and payment gateway facilitation.</p>
+        <p>3. <strong>Compliance:</strong> Landlords must comply with local housing regulations and standard safety protocols.</p>
+      </div>
+
+      <div class="flex items-start space-x-3 pt-2">
+        <input type="checkbox" id="terms-agree" required class="mt-1 rounded text-slate-900 focus:ring-slate-900 h-4 w-4">
+        <label for="terms-agree" class="text-sm text-slate-700 select-none">
+          I have read, understood, and agree to the <span class="font-semibold text-slate-900">Finder Terms & Policy</span> and accept the <span class="font-semibold text-slate-900">10% first-rent commission deduction</span> policy.
+        </label>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center pt-6 border-t border-slate-100">
+      <button type="button" id="prev-btn" class="px-6 py-2.5 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:bg-slate-50 transition hidden">
+        Back
+      </button>
+      <div class="ml-auto">
+        <button type="button" id="next-btn" class="px-6 py-2.5 rounded-lg bg-slate-900 text-white font-semibold hover:bg-slate-800 transition shadow-md">
+          Next Step
+        </button>
+        <button type="submit" id="submit-btn" class="px-6 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition shadow-md hidden">
+          Complete Registration
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
+<footer>
+        <p>&copy; 2026 Finder. All rights reserved.</p>
+        <p>For Enquiries call: 0797556488</p>
+        <p>Email: info@finder.com</p>
+    </body>
