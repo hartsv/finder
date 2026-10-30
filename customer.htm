@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finder | Customer Care</title>
+  <link rel="stylesheet" href="customer.css">
+</head>
+<body>
+  <nav>
+        <a href="index.html" class="nav-logo-link">
+  <img src="logo.jpg" alt="Finder Logo" class="nav-logo">
+</a>
+        <a href="home.htm">Home</a>
+        <a href="why-list.htm">Why list </a>
+        <a href="landlords.htm">list house </a>
+        <a href="customer.htm">Customer Care</a>
+        <a id="navAuthBtn" href="signup.htm">Sign Up/Sign in</a>
+    </nav>
+<body>
+
+<header class="page-header">
+  <h1>Customer Care</h1>
+  <p>Questions, comments or a problem to report? We're here to help.</p>
+</header>
+
+<main class="layout">
+
+  <!-- ===== Query / comment form ===== -->
+  <section class="card" aria-labelledby="contact-title">
+    <h2 id="contact-title">Send us a message</h2>
+
+    <form id="queryForm" novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+          <span class="error" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="phone">Phone number <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="0712345678"
+                 pattern="^(\+254|0)[17][0-9]{8}$" autocomplete="tel">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="type">I am sending a</label>
+          <select id="type" name="type" required>
+            <option value="">Choose one</option>
+            <option>Query</option>
+            <option>Comment</option>
+            <option>Complaint</option>
+            <option>Suggestion</option>
+          </select>
+          <span class="error" aria-live="polite"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic" required>
+          <option value="">Choose one</option>
+          <option>Finding or booking a house</option>
+          <option>Payments and deposits</option>
+          <option>Listing my property (landlords)</option>
+          <option>My account</option>
+          <option>Something else</option>
+        </select>
+        <span class="error" aria-live="polite"></span>
+      </div>
+
+      <div class="field">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" rows="6" maxlength="1000" minlength="10" required
+                  placeholder="Tell us how we can help..."></textarea>
+        <div class="meta">
+          <span class="error" aria-live="polite"></span>
+          <span class="counter" id="counter">0 / 1000</span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn" id="sendBtn">Send message</button>
+    </form>
+
+    <div id="success" class="success" hidden role="status">
+      <h3>Message sent</h3>
+      <p>Thank you for reaching out. Your reference number is <strong id="ref"></strong>.
+         We'll reply to your email within 24 hours.</p>
+      <button type="button" class="btn btn-secondary" id="againBtn">Send another message</button>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="card" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently asked questions</h2>
+
+    <div class="field">
+      <label for="faqSearch" class="visually-hidden">Search the FAQ</label>
+      <input type="search" id="faqSearch" placeholder="Search questions, e.g. deposit">
+    </div>
+
+    <div class="faq" id="faqList">
+
+      <details>
+        <summary>How do I find a house on Finder?</summary>
+        <p>Click <strong>View House Units</strong> on the home page and filter by location, number of rooms and rent. Open a listing to see photos, amenities and what is or isn't included in the rent.</p>
+      </details>
+
+      <details>
+        <summary>How do I book a viewing?</summary>
+        <p>Open the listing you like and choose <strong>Book a visitation</strong>. Pick a date and time, and the landlord will confirm it. You'll get a notification by email.</p>
+      </details>
+
+      <details>
+        <summary>Is it safe to pay my deposit through Finder?</summary>
+        <p>Yes. Payments are made through the platform, never directly to a stranger. For each new tenancy, the first rent payment is held by Finder for 48 hours so any problem can be reported before the money is released to the landlord.</p>
+      </details>
+
+      <details>
+        <summary>Does Finder charge tenants a fee?</summary>
+        <p>Searching, booking a viewing and contacting landlords is free for tenants. Any charge that applies to a specific listing is shown on that listing before you pay.</p>
+      </details>
+
+      <details>
+        <summary>How do I list my property as a landlord?</summary>
+        <p>Click <strong>List Apartments</strong> and complete the five-page registration: your details, property details, the landlord agreement, ID and proof of ownership, and bank details for receiving rent.</p>
+      </details>
+
+      <details>
+        <summary>What commission does Finder charge landlords?</summary>
+        <p>Finder charges an 8% commission on rent for tenancies secured through the platform. There is no charge for registering or listing.</p>
+      </details>
+
+      <details>
+        <summary>Why do I need to upload proof of ownership?</summary>
+        <p>It protects tenants from fake listings. A title deed, lease or ownership letter lets us confirm that you have the right to let the property.</p>
+      </details>
+
+      <details>
+        <summary>When will I receive my rent as a landlord?</summary>
+        <p>After the 48-hour holding period on the first payment, and provided no dispute has been raised, the rent less commission is sent to the bank account you registered. Later payments follow your agreed rent schedule.</p>
+      </details>
+
+      <details>
+        <summary>A listing looked different when I visited. What should I do?</summary>
+        <p>Please send us a message using the form on this page, choosing <em>Complaint</em> and including the listing location and your visit date. Do this before paying, or within the 48-hour holding window if you've already paid.</p>
+      </details>
+
+      <details>
+        <summary>I forgot my password. How can I get back in?</summary>
+        <p>On the Sign Up / Sign in page, choose <strong>Forgot password</strong> and follow the link we email you. If you don't receive it, check your spam folder or contact us here.</p>
+      </details>
+
+      <p id="noResults" class="no-results" hidden>No questions match your search. Try different words, or send us a message.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="customer.js"></script>
+</body>
+</html>

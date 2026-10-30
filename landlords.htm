@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finder | Landlord Registration</title>
+  <link rel="stylesheet" href="landlords.css">
+</head>
+<body>
+   <nav>
+        <a href="index.html" class="nav-logo-link">
+  <img src="logo.jpg" alt="Finder Logo" class="nav-logo">
+</a>
+        <a href="home.htm">Home</a>
+        <a href="why-list.htm">Why list </a>
+        <a href="landlords.htm">list house </a>
+        <a href="customer.htm">Customer Care</a>
+        <a id="navAuthBtn" href="signup.htm">Sign Up/Sign in</a>
+    </nav>
+
+<main class="form-wrap">
+  <header class="form-header">
+    <h1>Join Finder's Landlords</h1>
+    <p>Complete each page to register. You can move on once every required field is filled.</p>
+  </header>
+
+  <ol class="progress" aria-label="Registration progress">
+    <li class="active">Your details</li>
+    <li>Property</li>
+    <li>Agreement</li>
+    <li>Verification</li>
+    <li>Payments</li>
+  </ol>
+
+  <form id="landlordForm" novalidate>
+
+    <!-- PAGE 1: Personal details -->
+    <fieldset class="form-page active">
+      <legend>Your details</legend>
+
+      <div class="row">
+        <div class="field">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="0712345678 or +254712345678"
+               pattern="^(\+254|0)[17][0-9]{8}$" autocomplete="tel" required>
+        <small>Use a Kenyan number, e.g. 0712345678.</small>
+      </div>
+    </fieldset>
+
+    <!-- PAGE 2: Property details -->
+    <fieldset class="form-page">
+      <legend>Property details</legend>
+
+      <div class="field">
+        <label for="location">House location</label>
+        <input type="text" id="location" name="location" placeholder="Estate, town, county" required>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="rooms">Number of rooms</label>
+          <input type="number" id="rooms" name="rooms" min="1" step="1" required>
+        </div>
+        <div class="field">
+          <label for="rent">Rent (KES per month)</label>
+          <input type="number" id="rent" name="rent" min="1" step="100" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="label">Amenities offered</span>
+        <details class="dropdown" id="amenityDropdown">
+          <summary id="amenitySummary">Select amenities</summary>
+          <div class="dropdown-menu">
+            <label><input type="checkbox" name="amenity" value="Wi-Fi"> Wi-Fi</label>
+            <label><input type="checkbox" name="amenity" value="Electricity"> Electricity</label>
+            <label><input type="checkbox" name="amenity" value="Water availability"> Water availability</label>
+            <label><input type="checkbox" name="amenity" value="Gym"> Gym</label>
+            <label><input type="checkbox" name="amenity" value="Backup power supply"> Backup power supply</label>
+          </div>
+        </details>
+        <small>Optional. For each amenity you choose, tell us if it is part of the rent.</small>
+      </div>
+
+      <!-- Rows are added here when an amenity is ticked -->
+      <div id="amenityDetails"></div>
+    </fieldset>
+
+    <!-- PAGE 3: Agreement and policy -->
+    <fieldset class="form-page">
+      <legend>Agreement and company policy</legend>
+
+      <h2>Landlord Partnership Agreement</h2>
+      <div class="doc" tabindex="0" aria-label="Landlord partnership agreement">
+        <p><strong>1. Parties.</strong> This agreement is between Finder ("the Company") and the landlord registering on this form ("the Landlord").</p>
+        <p><strong>2. Marketing services.</strong> The Company will list and market the Landlord's property to prospective tenants across its platform.</p>
+        <p><strong>3. Commission.</strong> The Landlord agrees to pay the Company a commission of 8% of the rent for each tenancy secured through Finder.</p>
+        <p><strong>4. Rent holding period.</strong> To protect all parties from fraud, the Company will hold the first rent payment made by a tenant for 48 hours. After this period, and provided no dispute has been raised, the rent less commission is released to the Landlord's registered bank account.</p>
+        <p><strong>5. Accuracy of listings.</strong> The Landlord confirms that all information and documents supplied are true and that they have the legal right to let the property.</p>
+        <p><strong>6. Termination.</strong> Either party may end this agreement with 30 days' written notice. Commission remains payable on tenancies already secured.</p>
+      </div>
+      <label class="check">
+        <input type="checkbox" name="agreeTerms" required>
+        I have read and agree to the Landlord Partnership Agreement.
+      </label>
+
+      <h2>Company Policy</h2>
+      <div class="doc" tabindex="0" aria-label="Company policy">
+        <p><strong>Honest listings.</strong> Photos, prices and amenities must match the property as it is. Misleading listings will be removed.</p>
+        <p><strong>Fair treatment.</strong> Landlords must not discriminate against tenants on the basis of tribe, religion, gender, disability or any other protected ground.</p>
+        <p><strong>Payments through Finder.</strong> Deposits and rent for tenants found through Finder must be paid through the platform. Asking tenants to pay outside the platform is a breach of policy.</p>
+        <p><strong>Property condition.</strong> The property must be safe, habitable and fit for the purpose advertised.</p>
+        <p><strong>Data protection.</strong> Tenant and landlord personal data may only be used for the purpose of letting the property.</p>
+        <p><strong>Enforcement.</strong> Breach of this policy may lead to suspension or removal from the platform.</p>
+      </div>
+      <label class="check">
+        <input type="checkbox" name="agreePolicy" required>
+        I have read and agree to Finder's Company Policy.
+      </label>
+    </fieldset>
+
+    <!-- PAGE 4: Identity and ownership -->
+    <fieldset class="form-page">
+      <legend>Identity and ownership</legend>
+
+      <div class="row">
+        <div class="field">
+          <label for="idType">ID type</label>
+          <select id="idType" name="idType" required>
+            <option value="">Choose one</option>
+            <option value="National ID">National ID</option>
+            <option value="Passport">Passport</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="idNumber">ID / passport number</label>
+          <input type="text" id="idNumber" name="idNumber" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="proof">Proof of ownership</label>
+        <input type="file" id="proof" name="proof" accept=".pdf,.jpg,.jpeg,.png" required>
+        <small>Upload a title deed, lease or ownership letter (PDF, JPG or PNG).</small>
+      </div>
+    </fieldset>
+
+    <!-- PAGE 5: Bank details -->
+    <fieldset class="form-page">
+      <legend>Where should we send your rent?</legend>
+
+      <div class="field">
+        <label for="bankName">Bank name</label>
+        <input type="text" id="bankName" name="bankName" required>
+      </div>
+
+      <div class="field">
+        <label for="accountName">Account holder name</label>
+        <input type="text" id="accountName" name="accountName" required>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="accountNumber">Account number</label>
+          <input type="text" id="accountNumber" name="accountNumber" inputmode="numeric"
+                 pattern="[0-9]{6,20}" required>
+        </div>
+        <div class="field">
+          <label for="branch">Branch</label>
+          <input type="text" id="branch" name="branch" required>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Navigation -->
+    <div class="buttons">
+      <button type="button" id="prevBtn" class="btn btn-secondary">Back</button>
+      <button type="button" id="nextBtn" class="btn btn-primary" disabled>Next</button>
+      <button type="submit" id="submitBtn" class="btn btn-primary" disabled>Complete registration</button>
+    </div>
+  </form>
+
+  <section id="success" class="success" hidden>
+    <h2>Registration complete</h2>
+    <p>Thank you for joining Finder. We'll review your documents and email you once your account is active.</p>
+  </section>
+</main>
+
+<script src="landlords.js"></script>
+</body>
+</html>

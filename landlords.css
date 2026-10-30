@@ -1,0 +1,260 @@
+/* Finder palette, taken from the home page */
+:root {
+  --navy: #00001f;       /* nav bar */
+  --blue: #1e4079;       /* hero */
+  --blue-soft: #e4eaf5;
+  --orange: #ffa500;     /* headline */
+  --orange-dark: #e09200;
+  --cream: #f5f5dc;      /* page background */
+  --cream-light: #fbfaee;/* button / panel */
+  --ink: #14142b;
+  --error: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  background-color: beige;
+  color: var(--ink);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+}
+nav{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin:0;
+    background-color: #00002a;
+    }
+nav a{
+    text-decoration: none;
+    color:white;
+    font-size: 1.2rem;
+    font-family: serif;
+    font-weight: bold;
+}
+nav :hover{
+    color: #e2725b;
+}
+.nav-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 85px;           /* Adjust this height (e.g., 35px - 50px) to fit your nav bar */
+  width: auto;            /* Keeps the logo proportional */
+  object-fit: contain;
+}
+
+.form-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--cream-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 31, 0.15);
+}
+
+/* Header */
+.form-header {
+  background: linear-gradient(180deg, var(--navy), var(--blue));
+  color: #fff;
+  padding: 32px 32px 28px;
+  text-align: center;
+}
+.form-header h1 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  color: var(--orange);
+}
+.form-header p { margin: 0; }
+
+/* Progress */
+.progress {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--navy);
+  counter-reset: step;
+}
+.progress li {
+  flex: 1;
+  padding: 12px 4px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9aa6c4;
+  border-bottom: 4px solid transparent;
+  counter-increment: step;
+}
+.progress li::before { content: counter(step) ". "; }
+.progress li.done { color: #fff; border-bottom-color: var(--blue); }
+.progress li.active { color: var(--orange); font-weight: 600; border-bottom-color: var(--orange); }
+
+/* Pages */
+form { padding: 28px 32px 32px; }
+
+.form-page { display: none; border: 0; margin: 0; padding: 0; min-width: 0; }
+.form-page.active { display: block; }
+
+legend {
+  padding: 0;
+  margin-bottom: 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+h2 {
+  margin: 24px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  color: var(--navy);
+}
+
+/* Fields */
+.row { display: flex; gap: 16px; }
+.row .field { flex: 1; }
+
+.field { margin-bottom: 18px; }
+label, .label { display: block; margin-bottom: 6px; font-weight: 600; color: var(--navy); }
+small { display: block; margin-top: 4px; color: #4a5575; }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 11px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid #c9d2e6;
+  border-radius: 8px;
+}
+input:focus, select:focus, summary:focus-visible, .doc:focus {
+  outline: 3px solid var(--orange);
+  outline-offset: 1px;
+  border-color: var(--blue);
+}
+input.touched:invalid, select.touched:invalid { border-color: var(--error); }
+
+/* Amenity dropdown */
+.dropdown { position: relative; }
+.dropdown summary {
+  padding: 11px 12px;
+  background: #fff;
+  border: 2px solid #c9d2e6;
+  border-radius: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+.dropdown summary::-webkit-details-marker { display: none; }
+.dropdown summary::after { content: "\25BE"; float: right; color: var(--blue); }
+.dropdown[open] summary { border-color: var(--blue); }
+.dropdown-menu {
+  position: absolute;
+  z-index: 5;
+  left: 0; right: 0;
+  margin-top: 4px;
+  padding: 8px;
+  background: #fff;
+  border: 2px solid var(--blue);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 31, 0.15);
+}
+.dropdown-menu label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px;
+  font-weight: 400;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.dropdown-menu label:hover { background: var(--blue-soft); }
+
+/* Per-amenity cost rows */
+.amenity-row {
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  background: var(--blue-soft);
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+}
+.amenity-row h3 { margin: 0 0 8px; font-size: 1rem; color: var(--navy); }
+.amenity-row .choices { display: flex; gap: 20px; flex-wrap: wrap; }
+.amenity-row .choices label { display: flex; align-items: center; gap: 8px; margin: 0; font-weight: 400; }
+.amenity-row .charge { margin-top: 10px; }
+
+/* Agreement text */
+.doc {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 14px 16px;
+  background: #fff;
+  border: 2px solid #c9d2e6;
+  border-radius: 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+}
+.doc p { margin: 0 0 10px; }
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.check input { margin-top: 5px; accent-color: var(--blue); }
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+}
+.btn {
+  padding: 12px 28px;
+  font: inherit;
+  font-weight: 700;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-primary { margin-left: auto; background: var(--orange); color: var(--navy); }
+.btn-primary:hover:not(:disabled) { background: var(--orange-dark); }
+.btn-secondary { background: var(--cream); color: var(--navy); border: 2px solid var(--blue); }
+.btn-secondary:hover { background: var(--blue-soft); }
+.btn:disabled { background: #d6d9e3; color: #7b8196; cursor: not-allowed; }
+.btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.btn[hidden] { display: none; }
+
+/* Success message */
+.success { padding: 48px 32px; text-align: center; }
+.success h2 { font-size: 1.6rem; color: var(--blue); }
+
+@media (max-width: 560px) {
+  .row { flex-direction: column; gap: 0; }
+  form { padding: 20px; }
+  .progress li { font-size: 0; padding: 14px 4px; }
+  .progress li::before { font-size: 0.9rem; }
+  .progress li.active { font-size: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .form-page.active { animation: slide-in 0.25s ease-out; }
+  @keyframes slide-in { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+}
